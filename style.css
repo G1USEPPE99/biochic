@@ -931,7 +931,7 @@ body {
   font-size: var(--font-size-lg);
   line-height: 1.7;
   margin-bottom: var(--space-16);
-  color: var(--color-text);
+  color: var(--color-black);
 }
 
 .heritage-highlight {
@@ -1029,7 +1029,7 @@ body {
 }
 
 .service-card p {
-  color: var(--color-text-secondary);
+  color: var(--color-white);
   margin: 0;
 }
 
@@ -1603,6 +1603,9 @@ body {
 .btn--outline:hover {
   background: var(--color-biochic-green);
   color: var(--color-white);
+}
+.btn--lg {
+    color: var(--color-white);
 }
 
 /* Form Enhancements */
