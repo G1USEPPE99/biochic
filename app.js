@@ -144,7 +144,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 phone: formData.get('phone'),
                 message: formData.get('message')
             };
+ // ✅ INVIO A WHATSAPP
+        const numeroWhatsApp = "3454300380"; // <-- inserisci qui il numero del titolare (senza + o spazi)
+        
+        const messaggio = 
+            `*Nuovo messaggio dal sito Biochic.it*%0A%0A` +
+            `👤 *Nome:* ${data.name}%0A` +
+            `📧 *Email:* ${data.email}%0A` +
+            `📞 *Telefono:* ${data.phone}%0A` +
+            `💬 *Messaggio:* ${encodeURIComponent(data.message)}%0A`;
 
+        const url = `https://wa.me/${numeroWhatsApp}?text=${messaggio}`;
+
+        // Apre WhatsApp (web o app) con il messaggio compilato
+        window.open(url, '_blank');
             // Show success message
             showSuccessMessage(contactForm, 'Messaggio inviato con successo! Ti contatteremo presto.');
             
@@ -196,9 +209,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 showErrorMessage(bookingForm, 'Gli orari di apertura sono dalle 9:00 alle 18:30. Seleziona un orario valido.');
                 return;
             }
+           // ✅ INVIO A WHATSAPP
+        const numeroWhatsApp = "3454300380"; // <-- Inserisci qui il numero del titolare (senza +, spazi o zeri iniziali)
+        
+        const messaggio = 
+            `*Nuova richiesta di prenotazione*%0A%0A` +
+            `👤 *Nome:* ${data.name}%0A` +
+            `📞 *Telefono:* ${data.phone}%0A` +
+            `📧 *Email:* ${data.email}%0A` +
+            `💇‍♀️ *Servizio richiesto:* ${data.service}%0A` +
+            `📅 *Data:* ${data.date}%0A` +
+            `🕒 *Orario:* ${data.time}%0A` +
+            (data.notes ? `📝 *Note:* ${encodeURIComponent(data.notes)}%0A` : '') +
+            `%0A📍 Richiesta inviata dal sito Biochic.it`;
+
+        const url = `https://wa.me/${numeroWhatsApp}?text=${messaggio}`;
+
+        // Apre WhatsApp in nuova finestra/scheda
+        window.open(url, '_blank');
 
             // Show success message
-            showSuccessMessage(bookingForm, 'Richiesta di prenotazione inviata! Ti contatteremo al più presto per confermare l\'appuntamento.');
+            showSuccessMessage(bookingForm, 'Richiesta inviata su WhatsApp! Ti contatteremo presto per confermare l\'appuntamento.');
             
             // Reset form
             bookingForm.reset();
@@ -473,12 +504,12 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.dataset.originalText = btn.textContent;
     });
 
-    // Updated real photos for BIOCHIC (corrected gallery - 5 photos)
+    // Updated real photos for BIOCHIC ()
     const realPhotos = [
         {
             url: "https://lh3.googleusercontent.com/p/AF1QipNdo7NbYJHOa6FEdht5DeMdPCV51qdyETpnBVyx=s1360-w1360-h1020-rw",
             alt: "Salone BIOCHIC - Esterno",
-            category: "esterni"
+            category: "branding"
         },
         {
             url: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nruDDoDtSfvfFT2j08_XVztNlwR9f-bRSAIJ5JVjB2qLC-l9cmFr6A60CkCObl58DzFvo-GLEVL3oSvn0V9ObKn-5To4Wti5eid5Netcweb641gHq9OWFygzaeVN37W2bJNnKgc=s1360-w1360-h1020-rw",
