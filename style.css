@@ -1859,3 +1859,7 @@ select.form-control {
 .fade-in.visible {
   opacity: 1;               /* diventa visibile */
 }
+html, body {
+  overflow-x: hidden;
+}
+
