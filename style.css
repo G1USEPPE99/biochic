@@ -891,7 +891,12 @@ body {
   margin-bottom: var(--space-16);
   font-style: italic;
 }
-
+.hero-desc {
+  font-size: var(--font-size-lg);
+  color:#000000;
+  margin-bottom: var(--space-16);
+  
+}
 .hero-badges {
   margin-bottom: var(--space-24);
 }
@@ -1752,3 +1757,4 @@ select.form-control {
 .hidden {
   display: none !important;
 }
+
