@@ -897,6 +897,13 @@ body {
   margin-bottom: var(--space-16);
   
 }
+.hero-logo img {
+    max-width: 200px; /* regola la dimensione a piacere */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* centra l'immagine */
+}
+
 .hero-badges {
   margin-bottom: var(--space-24);
 }
@@ -1757,4 +1764,5 @@ select.form-control {
 .hidden {
   display: none !important;
 }
+
 
