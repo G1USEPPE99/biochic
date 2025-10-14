@@ -386,8 +386,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         requestAnimationFrame(updateCounter);
     }
-
-    // Enhanced testimonial rotation
+   // Enhanced testimonial rotation
     const testimonials = document.querySelectorAll('.testimonial');
     if (testimonials.length >= 3) {
         let currentTestimonial = 0;
@@ -409,6 +408,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentTestimonial = (currentTestimonial + 1) % testimonials.length;
         }, 4000);
     }
+
 
     // Form validation enhancements
     const requiredFields = document.querySelectorAll('input[required], select[required], textarea[required]');
@@ -710,3 +710,91 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+
+
+
+const track = document.querySelector('.testimonials-grid');
+const gap = 20; // gap tra testimonial in px
+const scrollSpeed = 0.5; // pixel per frame
+
+// Clona tutta la track per creare il loop infinito
+const trackContent = track.innerHTML;
+track.innerHTML += trackContent; // duplicazione
+
+const testimonials = Array.from(track.children);
+const originalCount = testimonials.length / 2; // numero di testimonial originali
+const testimonialWidth = testimonials[0].offsetWidth + gap; // larghezza fissa + gap
+
+let scrollPos = 0;
+
+// Animazione scroll infinito
+function animateTestimonials() {
+    scrollPos += scrollSpeed;
+    track.style.transform = `translateX(-${scrollPos}px)`;
+
+    // Quando scroll ha superato la lunghezza dei testimonial originali, ricomincia da 0
+    if (scrollPos >= originalCount * testimonialWidth) {
+        scrollPos = 0;
+    }
+
+    requestAnimationFrame(animateTestimonials);
+}
+
+// Evidenzia testimonial attivo (opzionale)
+let currentHighlight = 0;
+setInterval(() => {
+    testimonials.forEach((testimonial, index) => {
+        if (index % originalCount === currentHighlight) {
+            testimonial.style.transform = 'scale(1.05)';
+            testimonial.style.boxShadow = '0 8px 25px rgba(74, 124, 89, 0.3)';
+            testimonial.style.borderColor = 'var(--color-biochic-green)';
+        } else {
+            testimonial.style.transform = 'scale(1)';
+            testimonial.style.boxShadow = 'var(--shadow-sm)';
+            testimonial.style.borderColor = 'var(--color-biochic-green)';
+        }
+    });
+    currentHighlight = (currentHighlight + 1) % originalCount;
+}, 4000);
+
+// Avvia animazione
+animateTestimonials();
+
+
+
+//animazione servizi
+const sections = document.querySelectorAll('.animate-right,.animate-left');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // animazione una sola volta
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+/*fade in*/
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target); // una sola volta
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+fadeElements.forEach(el => fadeObserver.observe(el));
