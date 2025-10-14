@@ -1304,7 +1304,7 @@ background: var(--color-bg-5)
 
 .gallery-item img {
   width: 100%;
-  height: auto;        /* mantiene proporzioni */
+  height: 400px;        /* mantiene proporzioni */
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   display: block;
@@ -1862,4 +1862,5 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
