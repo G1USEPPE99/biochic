@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const messaggio = 
             `*Nuovo messaggio dal sito Biochic.it*%0A%0A` +
             `👤 *Nome:* ${data.name}%0A` +
-            `📧 *Email:* ${data.email}%0A` +
+             (data.email ? `📧 *Email:* ${encodeURIComponent(data.email)}%0A` : '') +
             `📞 *Telefono:* ${data.phone}%0A` +
             `💬 *Messaggio:* ${encodeURIComponent(data.message)}%0A`;
 
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `*Nuova richiesta di prenotazione*%0A%0A` +
             `👤 *Nome:* ${data.name}%0A` +
             `📞 *Telefono:* ${data.phone}%0A` +
-            `📧 *Email:* ${data.email}%0A` +
+             (data.email ? `📧 *Email:* ${encodeURIComponent(data.email)}%0A` : '') +
             `💇‍♀️ *Servizio richiesto:* ${data.service}%0A` +
             `📅 *Data:* ${data.date}%0A` +
             `🕒 *Orario:* ${data.time}%0A` +
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Enhanced testimonials for updated content
     const testimonialTexts = [
-        "Il Degradé Joelle di Grazia è perfetto! Professionalità e qualità eccellenti.",
+        "Il Degradé di Grazia è perfetto! Professionalità e qualità eccellenti.",
         "Salone elegante, prezzi onesti e risultati fantastici. Lo consiglio!",
         "Dal 2004 la mia parrucchiera di fiducia. Sempre soddisfatta!"
     ];
@@ -798,3 +798,7 @@ const fadeObserver = new IntersectionObserver(entries => {
 });
 
 fadeElements.forEach(el => fadeObserver.observe(el));
+
+
+
+
