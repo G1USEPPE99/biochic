@@ -999,7 +999,7 @@ body {
   object-position: center top; /* sposta il focus verso l’alto, se vuoi centrato usa 'center center' */
   transform: translate(-50%, -50%);
   z-index: 1;
-  content: url('assets/collage.png');
+  content: url('assets/collagehero.jpg');
 }
 
 .hero-content {
@@ -2132,6 +2132,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
