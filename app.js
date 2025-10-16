@@ -57,38 +57,72 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollY = currentScrollY;
     });
 
-    // Gallery filter functionality
+    //Gallery filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item[data-category]');
+const galleryItems = document.querySelectorAll('.gallery-item[data-category]');
+const seeMoreBtn = document.getElementById('see-more-btn');
+let currentFilter = 'all';
+let mobileIndex = 3; // iniziamo mostrando le prime 3 foto
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Filter gallery items
-            galleryItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                
-                if (filter === 'all' || category === filter) {
-                    item.style.display = 'block';
-                    item.style.opacity = '0';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                    }, 100);
-                } else {
-                    item.style.opacity = '0';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
+function updateGallery() {
+  const isMobile = window.innerWidth <= 768;
+  let count = 0;
+  
+  galleryItems.forEach(item => {
+    const category = item.getAttribute('data-category');
+    const match = (currentFilter === 'all' || category === currentFilter);
+    
+    if (match) {
+      if (isMobile) {
+        // Mostra solo fino a mobileIndex
+        if (count < mobileIndex) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+        count++;
+      } else {
+        // Desktop: mostra tutto
+        item.style.display = 'block';
+      }
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  // Mostra o nascondi pulsante mobile
+  if (isMobile && count > mobileIndex) {
+    document.querySelector('.see-more-container').style.display = 'block';
+  } else if (isMobile && count > 0 && count <= mobileIndex) {
+    document.querySelector('.see-more-container').style.display = 'none';
+  } else {
+    document.querySelector('.see-more-container').style.display = 'none';
+  }
+}
+
+// Filtri
+filterButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    currentFilter = this.getAttribute('data-filter');
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    this.classList.add('active');
+    mobileIndex = 3; // resetta mobile a prime 3 foto
+    updateGallery();
+  });
+});
+
+// Pulsante "Vedi altre foto"
+seeMoreBtn.addEventListener('click', function() {
+  mobileIndex += 3;
+  updateGallery();
+});
+
+// Aggiorna gallery al resize per passaggio desktop/mobile
+window.addEventListener('resize', updateGallery);
+
+// Inizializza
+updateGallery();
+
 
     // Lightbox functionality for gallery
     const lightboxModal = document.getElementById('lightbox-modal');
@@ -145,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: formData.get('message')
             };
  // ✅ INVIO A WHATSAPP
-        const numeroWhatsApp = "3454300380"; // <-- inserisci qui il numero del titolare (senza + o spazi)
+        const numeroWhatsApp = "3473826741"; // <-- inserisci qui il numero del titolare (senza + o spazi)
         
         const messaggio = 
             `*Nuovo messaggio dal sito Biochic.it*%0A%0A` +
@@ -210,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
            // ✅ INVIO A WHATSAPP
-        const numeroWhatsApp = "3454300380"; // <-- Inserisci qui il numero del titolare (senza +, spazi o zeri iniziali)
+        const numeroWhatsApp = "3473826741"; // <-- Inserisci qui il numero del titolare (senza +, spazi o zeri iniziali)
         
         const messaggio = 
             `*Nuova richiesta di prenotazione*%0A%0A` +
@@ -328,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
     whatsappButtons.forEach(button => {
         button.addEventListener('click', function() {
-            console.log('WhatsApp button clicked - Contact: 388 733 0722');
+            console.log('WhatsApp button clicked - Contact:3473826741');
         });
     });
 
@@ -798,6 +832,8 @@ const fadeObserver = new IntersectionObserver(entries => {
 });
 
 fadeElements.forEach(el => fadeObserver.observe(el));
+
+
 
 
 
