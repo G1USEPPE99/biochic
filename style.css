@@ -1036,7 +1036,7 @@ body {
   width: 80%;
   max-width: 700px;
   height: auto;
-  margin: 0 auto 20px;
+  margin: 40px auto 20px;
 }
 
 .hero-description,
@@ -2132,6 +2132,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
