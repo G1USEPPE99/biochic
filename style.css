@@ -2115,6 +2115,9 @@ select.form-control {
     transform: translateX(-50px); /* parte da sinistra */
     transition: all 0.8s ease-out;
 }
+#servizi.animate-left {
+    transition-duration: 0.4s; /* più veloce solo qui */
+}
 
 .animate-left.visible {
     opacity: 1;
@@ -2132,6 +2135,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
