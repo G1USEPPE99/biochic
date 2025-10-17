@@ -1238,7 +1238,13 @@ font-weight: 700;
 .service-card.featured {
   border-color: var(--color-biochic-green);
 }
-
+@media (max-width: 768px) {
+  .service-card {
+    background-size: contain; /* mostra più parte della foto */
+    background-position: center center;
+  
+  }
+}
 
 /* Gallery Preview */
 .gallery-preview {
@@ -2135,6 +2141,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
