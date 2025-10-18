@@ -1678,7 +1678,7 @@ font-weight: 700;
 /* Contact */
 .contact {
   padding: var(--space-24) 0;
-  
+   background: var(--color-bg-6);
 }
 
 .contact h2 {
@@ -1738,7 +1738,7 @@ font-weight: 700;
 /* Booking */
 .booking {
   padding: var(--space-24) 0;
-  background: var(--color-bg-6);
+  
 }
 
 .booking h2 {
@@ -2141,6 +2141,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
