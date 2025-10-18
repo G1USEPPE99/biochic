@@ -1613,6 +1613,11 @@ font-weight: 700;
 .about-text p {
   margin-bottom: var(--space-12);
   line-height: 1.7;
+ font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-black);
+
+  
 }
 
 .certification-badge {
@@ -2170,6 +2175,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
