@@ -1828,7 +1828,15 @@ font-weight: 700;
   color: var(--color-biochic-green);
   margin-bottom: var(--space-16);
 }
+#booking-service optgroup {
+  color: var(--color-biochic-green); /* titolo verde */
+  font-weight: bold;
+}
 
+#booking-service option {
+  color: #ffffff; /* testo dei servizi bianco */
+
+}
 /* Footer */
 .footer {
   background: var(--color-biochic-green-dark);
@@ -2175,6 +2183,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
