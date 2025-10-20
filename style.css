@@ -1876,7 +1876,22 @@ font-weight: 700;
 .social-links a:hover {
   color: var(--color-biochic-gold);
 }
+.social-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  margin: 5px 0;
+}
+.social-links a:focus {
+   outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
 
+.social-links a img {
+  margin-right: 8px;
+}
 .footer-bottom {
   text-align: center;
   padding-top: var(--space-16);
@@ -2183,6 +2198,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
