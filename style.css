@@ -1217,7 +1217,7 @@ font-weight: 700;
 
 /* Immagini specifiche per ogni card */
 .service-card:nth-child(1) {
-  background-image: url('assets/degradefoto.jpg');/* CAMBIARE TUTTE E 5 LE FOTO*/
+  background-image: url('assets/degrade3.webp');/* CAMBIARE TUTTE E 5 LE FOTO*/
 }
 
 .service-card:nth-child(2) {
@@ -1226,11 +1226,10 @@ font-weight: 700;
 
 .service-card:nth-child(3) {
   background-image: url('assets/colore1.webp');
- 
 }
 
 .service-card:nth-child(4) {
-  background-image: url('img/cure-specifiche.jpg');
+  background-image: url('assets/tricoto.jpg');
 }
 
 .service-card:nth-child(5) {
@@ -1539,7 +1538,6 @@ font-weight: 700;
   align-items: start;
 }
 
-
 /*Inizio modifiche css*/
 .gallery-item {
   position: relative;
@@ -1591,6 +1589,9 @@ font-weight: 700;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 /*fine modifiche css*/
+
+
+
 /*pulsante see more*/
 #see-more-btn {
   background-color: var(--color-biochic-green);
@@ -2234,6 +2235,19 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
