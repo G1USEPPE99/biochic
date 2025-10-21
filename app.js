@@ -182,7 +182,7 @@ updateGallery();
         const numeroWhatsApp = "3473826741"; // <-- inserisci qui il numero del titolare (senza + o spazi)
         
         const messaggio = 
-            `*Nuovo messaggio dal sito Biochic.it*%0A%0A` +
+            `*Nuovo messaggio dal sito graziagiuffrida.it*%0A%0A` +
             `👤 *Nome:* ${data.name}%0A` +
              (data.email ? `📧 *Email:* ${encodeURIComponent(data.email)}%0A` : '') +
             `📞 *Telefono:* ${data.phone}%0A` +
@@ -255,7 +255,7 @@ updateGallery();
             `📅 *Data:* ${data.date}%0A` +
             `🕒 *Orario:* ${data.time}%0A` +
             (data.notes ? `📝 *Note:* ${encodeURIComponent(data.notes)}%0A` : '') +
-            `%0A📍 Richiesta inviata dal sito Biochic.it`;
+            `%0A📍 Richiesta inviata dal sito graziagiuffrida.it`;
 
         const url = `https://wa.me/${numeroWhatsApp}?text=${messaggio}`;
 
@@ -832,6 +832,7 @@ const fadeObserver = new IntersectionObserver(entries => {
 });
 
 fadeElements.forEach(el => fadeObserver.observe(el));
+
 
 
 
