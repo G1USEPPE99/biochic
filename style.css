@@ -1539,22 +1539,57 @@ font-weight: 700;
 }
 
 
+/*Inizio modifiche css*/
 .gallery-item {
+  position: relative;
   width: 100%;
-  height: 400px; /* altezza fissa per tutte le immagini */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 400px;     
-  /* mantiene proporzioni */
+  height: 400px;
+  overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  display: block;
 }
+
+/* immagini */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  display: block;
+  transition: transform 0.5s ease;
+  transform-origin: center center;
+}
+
+/* video centrato assolutamente */
+.gallery-item video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  border-radius: var(--radius-lg);
+  display: block;
+  transition: transform 0.5s ease;
+  transform-origin: center center;
+}
+
+/* effetto hover separato */
+.gallery-item:hover img {
+  transform: scale(1.05); /* solo zoom, nessun translate */
+}
+
+.gallery-item:hover video {
+  transform: translate(-50%, -50%) scale(1.05); /* zoom + centraggio */
+}
+
+/* ombra più intensa su hover */
+.gallery-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+/*fine modifiche css*/
 /*pulsante see more*/
 #see-more-btn {
   background-color: var(--color-biochic-green);
@@ -2198,6 +2233,7 @@ select.form-control {
 html, body {
   overflow-x: hidden;
 }
+
 
 
 
