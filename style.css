@@ -2237,6 +2237,25 @@ html, body {
 }
 
 
+:root {
+  color-scheme: dark !important;
+}
+
+
+/* === Correzione per bottoni della galleria in tema scuro forzato === */
+.filter-btn {
+  background: var(--color-biochic-green)  !important; /* verde biochic trasparente */
+  border: 2px solid var(--color-biochic-gold) !important;
+  color: #ffffff !important;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--color-biochic-green) !important;
+  border-color: var(--color-biochic-green) !important;
+  color: var(--color-white) !important;
+}
+
 
 
 
