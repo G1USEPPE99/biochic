@@ -2525,6 +2525,125 @@ html, body {
 
 
 
+/* === HERO: sincronizza la scala dei testi col logo === */
+
+/* testi: scala aggressiva con vmin (segue il lato più piccolo della finestra) */
+#home.hero .hero-description,
+#home.hero .hero-desc {
+  font-size: clamp(0.9rem, 2.8vmin, 1.6rem) !important;
+  line-height: 1.28 !important;
+  margin: 0 !important;
+  text-wrap: balance;
+}
+
+/* spazio tra le due righe: zero, già richiesto */
+#home.hero .hero-description + .hero-desc {
+  margin-top: 0 !important;
+}
+
+/* opzionale: allinea anche il logo alla stessa unità, così tutto “respira” insieme */
+#home.hero .hero-logo img {
+  width: clamp(220px, 32vmin, 700px) !important;
+  height: auto !important;
+}
+
+/* su schermi “bassi” riduciamo un filo in più per far stare sempre il CTA */
+@media (max-height: 780px) {
+  #home.hero .hero-description,
+  #home.hero .hero-desc {
+    font-size: clamp(0.88rem, 2.4vmin, 1.35rem) !important;
+  }
+}
+@media (max-height: 680px) {
+  #home.hero .hero-description,
+  #home.hero .hero-desc {
+    font-size: clamp(0.85rem, 2.1vmin, 1.25rem) !important;
+  }
+}
+
+/* === HERO TEXT SIZE: grande su desktop, fluido solo quando serve === */
+
+/* default: dimensione comoda */
+#home.hero .hero-description,
+#home.hero .hero-desc {
+  font-size: clamp(1rem, 2.2vmin, 1.5rem) !important; /* scala un po’ su schermi compatti */
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+/* desktop “normale” o ampio: torna esattamente come prima */
+@media (min-width: 1200px) and (min-height: 800px) {
+  #home.hero .hero-description,
+  #home.hero .hero-desc {
+    font-size: 2rem !important;   /* ripristino desktop */
+  }
+}
+
+/* laptop bassi/finestre schiacciate: scala di più per far stare il CTA */
+@media (max-height: 780px), (max-width: 1100px) {
+  #home.hero .hero-description,
+  #home.hero .hero-desc {
+    font-size: clamp(0.95rem, 2.6vmin, 1.35rem) !important;
+  }
+}
+
+/* nessuno spazio tra le due righe, confermato */
+#home.hero .hero-description + .hero-desc { margin-top: 0 !important; }
+
+
+
+/* === HERO: logo grande su desktop, fluido solo quando serve === */
+
+/* base: il logo non scende sotto ~360px e può arrivare a 700px */
+#home.hero .hero-logo img{
+  width: clamp(360px, 40vw, 700px) !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+/* testi: rimangono comodi di default */
+#home.hero .hero-description,
+#home.hero .hero-desc{
+  font-size: clamp(1rem, 2.2vmin, 1.5rem) !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+/* desktop “normale” o ampio: logo e testi come prima (grandi) */
+@media (min-width: 1200px) and (min-height: 800px){
+  #home.hero .hero-logo img{
+    width: 80% !important;        /* come avevi prima */
+    max-width: 700px !important;
+    min-width: 520px !important;  /* evita che scenda troppo */
+  }
+  #home.hero .hero-description,
+  #home.hero .hero-desc{
+    font-size: 2rem !important;   /* ripristino desktop */
+  }
+}
+
+/* laptop bassi o finestra bassa: comprimi solo quando serve per far stare il CTA */
+@media (max-height: 780px){
+  #home.hero .hero-logo img{
+    width: clamp(300px, 36vw, 600px) !important;
+  }
+  #home.hero .hero-description,
+  #home.hero .hero-desc{
+    font-size: clamp(0.95rem, 2.4vmin, 1.35rem) !important;
+  }
+}
+@media (max-height: 680px){
+  #home.hero .hero-logo img{
+    width: clamp(260px, 32vw, 560px) !important;
+  }
+  #home.hero .hero-description,
+  #home.hero .hero-desc{
+    font-size: clamp(0.9rem, 2.1vmin, 1.25rem) !important;
+  }
+}
+
+/* zero spazio tra le due righe */
+#home.hero .hero-description + .hero-desc{ margin-top: 0 !important; }
 
 
 
